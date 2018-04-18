@@ -18,6 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".add.AddDownloadTaskActivity"
+            android:configChanges="keyboard|keyboardHidden|mcc|mnc|locale|layoutDirection"
+            android:label="@string/share_label"
+            android:launchMode="singleTop"
+            android:theme="@style/OverlayActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
