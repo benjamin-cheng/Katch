@@ -1,5 +1,7 @@
 package io.katch.add
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
@@ -8,6 +10,8 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import io.katch.R
 import kotlinx.android.synthetic.main.activity_add_downlaod_task.*
+import java.util.*
+
 
 class AddDownloadTaskActivity : AppCompatActivity() {
 
@@ -17,6 +21,23 @@ class AddDownloadTaskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_downlaod_task)
+        scheduleDateEditText.setOnClickListener { _ -> showDatePicker() }
+        scheduleTimeEditText.setOnClickListener { _ -> showTimePicker() }
+    }
+
+    private fun showDatePicker() {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+        DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day -> scheduleDateEditText.setText("$year/$month/$day") }, year, month, day).show()
+    }
+
+    private fun showTimePicker() {
+        val c = Calendar.getInstance()
+        val hour = c.get(Calendar.HOUR_OF_DAY)
+        val minute = c.get(Calendar.MINUTE)
+        TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute -> scheduleTimeEditText.setText("$hourOfDay:$minute") }, hour, minute, false).show()
     }
 
     override fun onResume() {

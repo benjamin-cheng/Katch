@@ -5,31 +5,93 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/shareDialog"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:background="@android:color/white"
         android:orientation="vertical"
-        android:paddingTop="8dp"
+        android:padding="16dp"
         tools:context=".add.AddDownloadTaskActivity">
 
-        <TextView
-            android:id="@+id/titleTextView"
+        <Button
+            android:id="@+id/downloadNowButton"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:text="Download Now"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/scheduleDownloadButton"
+            app:layout_constraintTop_toBottomOf="@+id/scheduleTimeEditText"
+            tools:text="Download Now" />
+
+        <Button
+            android:id="@+id/scheduleDownloadButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:text="Schedule"
+            app:layout_constraintBaseline_toBaselineOf="@+id/downloadNowButton"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Schedule" />
+
+        <EditText
+            android:id="@+id/scheduleTimeEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="Title"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:inputType="time"
+            android:text="23:59"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/scheduleDateEditText"
+            app:layout_constraintTop_toBottomOf="@+id/fileNameEditText"
+            tools:text="23:59" />
+
+        <EditText
+            android:id="@+id/scheduleDateEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:inputType="date"
+            android:text="2018/04/20"
+            android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/scheduleTimeEditText"
+            app:layout_constraintEnd_toStartOf="@+id/scheduleTimeEditText"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="2018/04/20" />
+
+        <TextView
+            android:id="@+id/fileUrlTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="http://xxx.xxx.xxx/xxx/xxx.mp4"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@+id/fileNameEditText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Title" />
+            tools:text="http://xxx.xxx.xxx/xxx/xxx.mp4" />
+
+        <EditText
+            android:id="@+id/fileNameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="xxx.mp4"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fileUrlTextView"
+            tools:text="xxx.mp4" />
 
     </android.support.constraint.ConstraintLayout>
 
